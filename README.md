@@ -2,8 +2,9 @@ TIL (Today I Learned):fire:
 =========
 
 ### 목록
-* [Problem Solve](#problem-solve)
 * [Apple](#apple)
+* [Computer Science](#computer-science)
+* [Problem Solve](#problem-solve)
 
 ### Apple
 
