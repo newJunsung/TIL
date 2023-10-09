@@ -73,6 +73,15 @@ print(temp.2) // 123
 아래의 예시를 통해서 메타타입 값에서 인스턴스를 생성할 수 있습니다. 해당 타입에는 `final` 키워드가 붙어야하거나 생성자에 `required` 키워드가 붙어야합니다.
 
 > 인스턴스는 타입의 인스턴스이며, 타입은 메타타입의 인스턴스입니다.
+```mermaid
+classDiagram
+    class `MyClass.type`
+    class `MyClass.self`
+    class `MyClass()`
+    `MyClass.type` --> `MyClass.self` : 인스턴스화
+    `MyClass.self` --> `MyClass()` : 인스턴스화
+```
+
 
 ```swift
 class AnotherSubClass: SomeBaseClass {
@@ -86,4 +95,18 @@ class AnotherSubClass: SomeBaseClass {
 }
 let metatype: AnotherSubClass.Type = AnotherSubClass.self
 let anotherInstance = metatype.init(string: "some string")
+```
+
+```swift
+final class MyClass {
+    var num = 0
+    init(num: Int = 0) {
+        self.num = num
+    }
+}
+
+func initial(metaType: MyClass.Type) -> MyClass {
+    let tSelf = metaType.self
+    return tSelf.init(num: 111)
+}
 ```
