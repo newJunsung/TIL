@@ -2,7 +2,8 @@
 
 # 결과는 같은데 왜 5배 이상 차이가 나지?
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled.png)
+<img width="1153" alt="Untitled" src="https://github.com/newJunsung/TIL/assets/107932188/1224bab4-a147-481f-92aa-c878e95a7bdc">
+
 
 백준 문제를 제출하고 정답이 나온다면, 걸린 시간을 확인할 수 있다.
 
@@ -80,11 +81,13 @@ var h2 = h1
 
 `let h1 = Human(age: 20, name: "H1")` 코드가 실행되고 난 이후의 메모리 상황은 일단 아래와 같을 것이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%201.png)
+<img width="500" alt="Untitled 1" src="https://github.com/newJunsung/TIL/assets/107932188/d065ddea-8202-4b45-bf6f-3b6f5315eeb7">
+
 
 그리고 `var h2 = h1` 코드를 실행하면, COW에 대해 모르는 사람들은 아래와 같은 상황이 될 것이라고 생각하는 경우가 많을 것이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%202.png)
+<img width="500" alt="Untitled 2" src="https://github.com/newJunsung/TIL/assets/107932188/35841b91-0ca1-4a5f-bde5-acc340e7e8ed">
+
 
 그러나 사실 이렇지 않다.
 
@@ -92,7 +95,8 @@ var h2 = h1
 
 그림으로 보면 아래와 같은 상황이 일어난다는 것이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%203.png)
+<img width="500" alt="Untitled 3" src="https://github.com/newJunsung/TIL/assets/107932188/43b38104-7e97-43f8-91b3-8bb69b5a8823">
+
 
 그렇다면 `h2`의 `age` 혹은 `name`이 바뀌게 되면 h1의 값이 바뀐다고 생각하는 사람이 있을 수도 있다.
 
@@ -112,7 +116,7 @@ h2.age = 58
 
 이 경우에는 h2의 값이 바뀌기 때문에 이 시점에서 메모리를 새로 할당한다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%204.png)
+<img width="500" alt="Untitled 4" src="https://github.com/newJunsung/TIL/assets/107932188/5fcf85e3-8037-4ac0-9ab8-14754c969864">
 
 이러한 과정을 **COW(Copy On Write)**라고 한다.
 
@@ -142,19 +146,20 @@ b.append(5) // Line 3
 
 1번 째 줄을 실행하면 메모리(힙)에 아래와 같이 저장이 될 것이다. (참고. 변수 a는 스택 메모리에 있다.)
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%205.png)
+<img width="620" alt="Untitled 5" src="https://github.com/newJunsung/TIL/assets/107932188/33bbce32-70c7-47cd-be04-481aec9146af">
 
 앞서 배운 COW 개념을 적용했을 때, 2 번째 줄을 실행하면 아래와 같은 상황이 된다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%206.png)
+<img width="620" alt="Untitled 6" src="https://github.com/newJunsung/TIL/assets/107932188/e4bb5b06-2e5c-4266-8ff9-545edf19dffd">
 
 마지막으로 3 번째 줄을 실행하면, b는 새로운 메모리를 할당받으며 초기화가 진행될 것이다.
 
 결국 아래와 같은 상황이 될 것이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%207.png)
+<img width="620" alt="Untitled 7" src="https://github.com/newJunsung/TIL/assets/107932188/96a43bb9-87ee-4c30-a671-44a1d18d32e8">
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%208.png)
+<img width="620" alt="Untitled 8" src="https://github.com/newJunsung/TIL/assets/107932188/6c47f1fb-5986-42a1-bf23-a6caf4cfe610">
+
 
 ## 컬렉션 타입에서 할당 연산 시의 COW (추측)
 
@@ -174,21 +179,21 @@ for i in 0..<(a.count - 1) {
 }
 ```
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%209.png)
+<img width="620" alt="Untitled 9" src="https://github.com/newJunsung/TIL/assets/107932188/7f289856-b01e-4eb2-b296-fa5480d7b3f8">
 
 위의 이미지 같은 상황에서 기존의 값을 보유하는 변수를 하나 만들고, 거기서 더하기 연산을 할 것 같다.
 
 그런데 앞서 말했다시피 컬렉션 타입은 힙 영역에 할당되고 COW가 적용되기 때문에 아래와 같은 상황이 될 것이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%2010.png)
+<img width="620" alt="Untitled 10" src="https://github.com/newJunsung/TIL/assets/107932188/4ec3e299-cbd9-4cbf-a047-89f5b6b5aa5d">
 
 여기서 `a[0][j + 1] = a[0][j + 1] + Temp[j]`이 일어나서 a[0]은 다시 초기화가 진행된다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%2011.png)
+<img width="620" alt="Untitled 11" src="https://github.com/newJunsung/TIL/assets/107932188/2cfa72ac-e9bd-4191-9dff-69412ee40d0c">
 
 마무리로 Temp는 제 역할을 다 했기 때문에 소멸된다는 것이 내 추측이다.
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%2012.png)
+<img width="620" alt="Untitled 12" src="https://github.com/newJunsung/TIL/assets/107932188/b41ddb0f-299f-488b-9b36-ad6dec74d978">
 
 즉, 할당 연산 시에는 매 번 COW로 인한 초기화가 일어난다는게 내 추측이다.
 
@@ -217,7 +222,7 @@ for i in 0..<(a.count) {
 
 ### 실행 결과
 
-![Untitled](Swift%E1%84%85%E1%85%A9%20PS%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%84%E1%85%A2%20%E1%84%8C%E1%85%AE%E1%84%8B%E1%85%B4%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%B7(COW)%20051edf4bb5a245228bfa7ecc11d968ca/Untitled%2013.png)
+<img width="538" alt="Untitled 13" src="https://github.com/newJunsung/TIL/assets/107932188/36a96ef7-4f74-484f-84a7-efd9b752e635">
 
 ### 컴파일(뇌피셜)
 
